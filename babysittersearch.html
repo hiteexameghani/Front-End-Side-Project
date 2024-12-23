@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="jquery-3.5.1.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+
+    <title>Search Babysitter</title>
+    <style>
+      @media (min-width: 768px) {
+        .bs-searchbar {
+          border-right: 1px solid lightgray !important;
+          border-radius: 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container header">
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="./images/liitcarelogo.jpg"
+            width="80"
+            height="60"
+            alt="logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav left-section">
+            <li class="nav-item">
+              <a class="nav-link link-white" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-white" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-white" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link link-white"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Book a Service
+              </a>
+              <div
+                class="dropdown-menu book-service"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="#">Tutor</a>
+                <a class="dropdown-item" href="#">Babysitter</a>
+                <a class="dropdown-item" href="dayhome.html">Dayhome</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav right-section">
+            <li class="nav-item">
+              <a
+                class="nav-link link-white list-service"
+                id="list-service"
+                href="#"
+              >
+                List Your Service
+              </a>
+            </li>
+            <li class="social nav-item">
+              <a href="#" class="nav-link link-white"
+                ><i class="fa fa-phone-alt" id="fa-phone-alt"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a href="signup.html" class="nav-link link-white"> Sign Up </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link link-white user-icon"
+                href="#"
+                id="navbarDropdownMenuLink1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Login
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right login-btn"
+                aria-labelledby="navbarDropdownMenuLink1"
+              >
+                <a class="dropdown-item" href="#">Service Provider</a>
+                <a class="dropdown-item" href="#">Parent</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!--babysitter search page: start-->
+
+    <div class="babysittersearch-hero-image">
+      <div class="babysittersearch-hero-text">
+        <button>Our Babysitters</button>
+      </div>
+    </div>
+
+    <!--searchbar:start-->
+
+    <div class="babysitter-searchbar mb-4">
+      <div class="container">
+        <div
+          class="
+            row
+            babysitter-search__search-boxes
+            d-flex
+            align-items-center
+            mx-auto
+          "
+        >
+          <div
+            class="
+              col-lg-4 col-md-4 col-sm-12
+              input-group
+              babysitter-search__search-box
+            "
+          >
+            <label for="bs-name">Name</label>
+            <input
+              type="search"
+              id="tutor"
+              class="form-control bs-searchbar"
+              placeholder="Full Name"
+              style="border-radius: 0 !important"
+            />
+            <!--<button class="btn align-self-center" type="button">
+              <i class="fas fa-search"></i>
+            </button>-->
+          </div>
+          <div
+            class="
+              col-lg-4 col-md-4 col-sm-12
+              input-group
+              babysitter-search__search-box
+            "
+          >
+            <label for="bs-skills">Skills</label>
+            <input
+              type="search"
+              id="babysitter"
+              class="form-control bs-searchbar"
+              placeholder="Ex: cook etc..."
+              style="border-radius: 0 !important"
+            />
+            <!--<button class="btn align-self-center" type="button">
+              <i class="fas fa-search"></i>
+            </button>-->
+          </div>
+          <div
+            class="
+              col-lg-4 col-md-4 col-sm-12
+              input-group
+              babysitter-search__search-box
+            "
+          >
+            <label for="bs-workingshift">Working Shift</label>
+            <input
+              type="search"
+              id="dayhome"
+              class="form-control"
+              placeholder="Half/Full"
+              style="border-radius: 0 !important"
+            />
+            <button class="btn align-self-center ml-md-5" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--searchbar:end-->
+
+    <div id="container">
+      <div id="bs-left" class="bs-section">
+        <!--card1-->
+        <div class="bs-card p-3">
+          <img class="bs-card-img" src="images/probanner1.png"/>
+          <button class="bs-card-name text-center">Babysitter</button>
+          <h2 class="text-center">Chipo Dube</h2>
+          <div class="skills-mapicon">
+            <h5 class="bs-card-skills">Skills:</h5> 
+            <h5 class="bs-card-mapicon"><i class="fas fa-map-marker-alt"></i>Airdrie</h5>
+          </div>
+          <div>
+            <button class="tags-btn">Cook</button>|
+            <button class="tags-btn">Drive</button>|
+            <button class="tags-btn">Light Clean</button>|
+            <button class="tags-btn">Diaper Change</button>|
+            <button class="tags-btn">Help With Homework</button>
+            <a href="#">More tags</a><br>
+          </div>    
+          <div class="d-flex bio-dropdown">
+            <h5 class="bs-card-bio">BIO:</h5>
+            <h5 class="bs-card-dropdown">
+              <form action="/action_page.php">  
+                <select name="pay-rate" >
+                  <option value="volvo">$12/hr(01 Child)</option>
+                  <option value="saab">$14/hr(02 Child)</option>
+                  <option value="opel">$16/hr(02 Child)</option>
+                </select>
+              </form>
+            </h5>
+          </div>       
+          <p class="p-2 bg-light" style="border-radius: 20px;">I am 33yrs of age and have extensive experience with children of all ages. I am reliable and punctual for all my assignments...<a href="#">Know more</a></p>
+          <span class="msg-booknow">
+            <button class="message mr-2">Message</button>
+            <button class="book-now">Book now</button>
+          </span>
+        </div>
+        <!--card2-->
+        <div class="bs-card p-3">
+          <img class="bs-card-img" src="images/probanner2.png"/>
+          <button class="bs-card-name text-center">Babysitter</button>
+          <h2 class="text-center">Paige</h2>
+          <div class="skills-mapicon">
+            <h5 class="bs-card-skills">Skills:</h5> 
+            <h5 class="bs-card-mapicon"><i class="fas fa-map-marker-alt"></i>Airdrie</h5>
+          </div>
+          <div>
+            <button class="tags-btn">Cook</button>|
+            <button class="tags-btn">Drive</button>|
+            <button class="tags-btn">Light Clean</button>|
+            <button class="tags-btn">Diaper Change</button>|
+            <button class="tags-btn">Help With Homework</button>
+            <a href="#">More tags</a><br>
+          </div>    
+          <div class="d-flex bio-dropdown">
+            <h5 class="bs-card-bio">BIO:</h5>
+            <h5 class="bs-card-dropdown">
+              <form action="/action_page.php">  
+                <select name="pay-rate" >
+                  <option value="volvo">$12/hr(01 Child)</option>
+                  <option value="saab">$14/hr(02 Child)</option>
+                  <option value="opel">$16/hr(02 Child)</option>
+                </select>
+              </form>
+            </h5>
+          </div>       
+          <p class="p-2 bg-light" style="border-radius: 20px;">I am 33yrs of age and have extensive experience with children of all ages. I am reliable and punctual for all my assignments...<a href="#">Know more</a></p>
+          <span class="msg-booknow">
+            <button class="message mr-2">Message</button>
+            <button class="book-now">Book now</button>
+          </span>
+        </div>
+        <!--card3-->
+        <div class="bs-card p-3">
+          <img class="bs-card-img" src="images/probanner3.png"/>
+          <button class="bs-card-name text-center">Babysitter</button>
+          <h2 class="text-center">Camile Williams</h2>
+          <div class="skills-mapicon">
+            <h5 class="bs-card-skills">Skills:</h5> 
+            <h5 class="bs-card-mapicon"><i class="fas fa-map-marker-alt"></i>Airdrie</h5>
+          </div>
+          <div>
+            <button class="tags-btn">Cook</button>|
+            <button class="tags-btn">Drive</button>|
+            <button class="tags-btn">Light Clean</button>|
+            <button class="tags-btn">Diaper Change</button>|
+            <button class="tags-btn">Help With Homework</button>
+            <a href="#">More tags</a><br>
+          </div>    
+          <div class="d-flex bio-dropdown">
+            <h5 class="bs-card-bio">BIO:</h5>
+            <h5 class="bs-card-dropdown">
+              <form action="/action_page.php">  
+                <select name="pay-rate" >
+                  <option value="volvo">$12/hr(01 Child)</option>
+                  <option value="saab">$14/hr(02 Child)</option>
+                  <option value="opel">$16/hr(02 Child)</option>
+                </select>
+              </form>
+            </h5>
+          </div>       
+          <p class="p-2 bg-light" style="border-radius: 20px;">I am 33yrs of age and have extensive experience with children of all ages. I am reliable and punctual for all my assignments...<a href="#">Know more</a></p>
+          <span class="msg-booknow">
+            <button class="message mr-2">Message</button>
+            <button class="book-now">Book now</button>
+          </span>
+        </div>
+
+        <div class="bs-card p-3">
+          <!--card4-->
+          <img class="bs-card-img" src="images/probanner4.png"/>
+          <button class="bs-card-name text-center">Babysitter</button>
+          <h2 class="text-center">Sania Serina</h2>
+          <div class="skills-mapicon">
+            <h5 class="bs-card-skills">Skills:</h5> 
+            <h5 class="bs-card-mapicon"><i class="fas fa-map-marker-alt"></i>Airdrie</h5>
+          </div>
+          <div>
+            <button class="tags-btn">Cook</button>|
+            <button class="tags-btn">Drive</button>|
+            <button class="tags-btn">Light Clean</button>|
+            <button class="tags-btn">Diaper Change</button>|
+            <button class="tags-btn">Help With Homework</button>
+            <a href="#">More tags</a><br>
+          </div>    
+          <div class="d-flex bio-dropdown">
+            <h5 class="bs-card-bio">BIO:</h5>
+            <h5 class="bs-card-dropdown">
+              <form action="/action_page.php">  
+                <select name="pay-rate" >
+                  <option value="volvo">$12/hr(01 Child)</option>
+                  <option value="saab">$14/hr(02 Child)</option>
+                  <option value="opel">$16/hr(02 Child)</option>
+                </select>
+              </form>
+            </h5>
+          </div>       
+          <p class="p-2 bg-light" style="border-radius: 20px;">I am 33yrs of age and have extensive experience with children of all ages. I am reliable and punctual for all my assignments...<a href="#">Know more</a></p>
+          <span class="msg-booknow">
+            <button class="message mr-2">Message</button>
+            <button class="book-now">Book now</button>
+          </span>
+        </div>
+        <!--card5-->
+        <div class="bs-card p-3">
+          <img class="bs-card-img" src="images/probanner5.png"/>
+          <button class="bs-card-name text-center">Babysitter</button>
+          <h2 class="text-center">Kajal Walli</h2>
+          <div class="skills-mapicon">
+            <h5 class="bs-card-skills">Skills:</h5> 
+            <h5 class="bs-card-mapicon"><i class="fas fa-map-marker-alt"></i>Airdrie</h5>
+          </div>
+          <div>
+            <button class="tags-btn">Cook</button>|
+            <button class="tags-btn">Drive</button>|
+            <button class="tags-btn">Light Clean</button>|
+            <button class="tags-btn">Diaper Change</button>|
+            <button class="tags-btn">Help With Homework</button>
+            <a href="#">More tags</a><br>
+          </div>    
+          <div class="d-flex bio-dropdown">
+            <h5 class="bs-card-bio">BIO:</h5>
+            <h5 class="bs-card-dropdown">
+              <form action="/action_page.php">  
+                <select name="pay-rate" >
+                  <option value="volvo">$12/hr(01 Child)</option>
+                  <option value="saab">$14/hr(02 Child)</option>
+                  <option value="opel">$16/hr(02 Child)</option>
+                </select>
+              </form>
+            </h5>
+          </div>       
+          <p class="p-2 bg-light" style="border-radius: 20px;">I am 33yrs of age and have extensive experience with children of all ages. I am reliable and punctual for all my assignments...<a href="#">Know more</a></p>
+          <span class="msg-booknow">
+            <button class="message mr-2">Message</button>
+            <button class="book-now">Book now</button>
+          </span>
+        </div>
+        
+      </div>
+      <div id="bs-right" class="bs-section">
+        <div class="container map text-center">
+          <div class="col-sm-12 text-center pt-5">
+            <form class="input-group map-input">
+              <input
+                type="text"
+                class="bs-search-placeholder form-control form-control-sm"
+                placeholder="Search Babysitters by location"
+                aria-label="Search Babysitters by location"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append map-append">
+                <button class="btn" type="button" id="map-search-btn">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--babysitter search page: end-->
+
+    <footer class="page-footer font-small mdb-color">
+      <div class="footer-wave pt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-sm-12 justify-content-center pt-1">
+              <p class="footer-text-discounts text-light">
+                We like sharing freebies and discounts
+              </p>
+              <h1 class="footer-text-newsletter">Sign Up For Newsletter</h1>
+            </div>
+            <div class="col-md-6 col-sm-12 justify-content-center pt-5">
+              <form class="input-group">
+                <input
+                  type="text"
+                  class="footer-placeholder form-control form-control-sm"
+                  placeholder="Your-email..."
+                  aria-label="Your email"
+                  aria-describedby="basic-addon2"
+                />
+                <div class="input-group-append">
+                  <button class="btn footer-signup-button" type="button">
+                    Sign up
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <hr class="footer-hr p-0 w-75" />
+      </div>
+
+      <div class="footer-bottom">
+        <!-- Footer Links -->
+        <div class="text-center text-md-left pt-5">
+          <!-- Footer links -->
+          <div class="row text-center text-md-left mt-3 pb-3">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-center">
+              <img
+                src="./images/liitcarelogo.jpg"
+                width="100"
+                height="90"
+                alt="logo"
+                class="logo-footer"
+              />
+              <p class="text-light pt-2">Follow us on<br />social media</p>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Childcare</h6>
+              <p>
+                <a href="#" class="text-light">Find a Babysitter</a>
+              </p>
+              <p>
+                <a href="dayhome.html" class="text-light">Find a Dayhome</a>
+              </p>
+              <p>
+                <a href="#" class="text-light">List Your Services</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Tutoring</h6>
+              <p>
+                <a href="#" class="text-light">Find a Tutor</a>
+              </p>
+              <p>
+                <a href="#" class="text-light">List Your Services</a>
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Shop</h6>
+              <p>
+                <a href="#" class="text-light">Coming Soon</a>
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Resources</h6>
+              <p>
+                <a href="#" class="text-light">Events</a>
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">
+                Customer Relation
+              </h6>
+              <p>
+                <a href="#" class="text-light">Contact Us</a>
+              </p>
+              <p>
+                <a href="#" class="text-light">FAQ</a>
+              </p>
+              <p>
+                <a href="#" class="yellow-text">info@liitcare.com</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Footer links -->
+          <!-- Grid row -->
+          <div class="footer-copyright mt-5">
+            <div class="text-center text-black-50 py-3">
+              <a class="yellow-text" href="#"> LiiT Care Connect © 2021</a>
+              <a href="#" class="text-light">All rights reserved</a>
+              <a class="yellow-text" href="#"> Terms of Use</a>
+              <a href="#" class="text-light">and</a>
+              <a class="yellow-text" href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
